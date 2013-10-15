@@ -1,4 +1,4 @@
-Demonstrates that blocking directly in routes causes subsequent HTTP requests to timeout, and several methods of preventing this.
+Demonstrates that blocking directly in routes can cause subsequent HTTP requests to timeout, along with several methods of working around this. spray-routing's SimpleRoutingApp uses a single service actor instance to route every single incoming HTTP request message on the default Akka dispatcher, and this fact can cause problems if you call long-running synchronous blocking functions in your routes. 
 
 To run, simply do `re-start` in sbt.
 
