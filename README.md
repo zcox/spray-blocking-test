@@ -8,5 +8,5 @@ However the `/blockInFuture/10` and `/blockInDetach/10` routes will avoid this b
 
 So some best practices probably are:
   * don't call functions that will take time to return directly in routes
-  * do call functions that will take time to return separately in a Future or detachTo
+  * do call functions that will take time to return separately in a Future or detachTo or some other Actor
   * think about using some other ExecutionContext/Dispatcher for those long-running functions
