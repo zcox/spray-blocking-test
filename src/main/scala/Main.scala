@@ -1,4 +1,4 @@
-package banno
+package blocking
 
 import spray.routing.SimpleRoutingApp
 import akka.actor.ActorSystem
