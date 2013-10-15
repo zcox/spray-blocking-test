@@ -11,7 +11,7 @@ object Main extends App with SimpleRoutingApp {
 
   def block(delay: Long) = {
     println(s"Blocking for $delay secs...")
-    Thread.sleep(delay * 1000)
+    Thread.sleep(delay * 1000) //simulates long-running database query, HTTP request, filesystem access, etc
     println("Done blocking")
     "Done blocking"
   }
