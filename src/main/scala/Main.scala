@@ -33,11 +33,13 @@ object Main extends App with SimpleRoutingApp {
     * content and it will not prevent the spray-routing service actor from handling incoming http request messages. */
   val blockInPoolFuture = path("blockInPoolFuture" / IntNumber)(delay => complete(poolFuture(block(delay))))
 
-  def detach(route: Route) = detachTo(singleRequestServiceActor)(route)
+  // def detach(route: Route) = detachTo(singleRequestServiceActor)(route)
   /** Spawns a new Actor on each request and blocks on that actor. Same note about message dispatcher applies as for blockInFuture. */
-  val blockInDetach = path("blockInDetach" / IntNumber)(delay => detach(complete(block(delay))))
+  // val blockInDetach = path("blockInDetach" / IntNumber)(delay => detach(complete(block(delay))))
+
+  
 
   startServer(interface = "localhost", port = 8080) {
-    get(pingPong ~ blockThisThread ~ blockInFuture ~ blockInPoolFuture ~ blockInDetach)
+    get(pingPong ~ blockThisThread ~ blockInFuture ~ blockInPoolFuture /*~ blockInDetach*/)
   }
 }
